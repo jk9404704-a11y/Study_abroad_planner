@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Budget Planner
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="row gy-5 align-items-center">
+            <div class="col-lg-5">
+                <div class="section-glass p-5 shadow-soft">
+                    <div class="section-heading mb-4"><span class="eyebrow">Budget Planner</span><h2 class="section-title">Estimate your study abroad expenses</h2></div>
+                    <form id="budgetForm">
+                        <div class="mb-4">
+                            <label class="form-label">Tuition Fee</label>
+                            <input id="tuitionFee" type="number" class="form-control" placeholder="18000" required />
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Living Cost</label>
+                            <input id="livingCost" type="number" class="form-control" placeholder="12000" required />
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Other Expenses</label>
+                            <input id="otherExpenses" type="number" class="form-control" placeholder="3000" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg w-100">Calculate Budget</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="section-glass p-5 shadow-soft text-center">
+                    <div class="mb-4"><h4>Total Budget</h4></div>
+                    <div class="budget-output p-4 rounded-4">
+                        <h2 id="budgetTotal">$0.00</h2>
+                        <p class="text-muted">Your estimated total cost for tuition, living and additional expenses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

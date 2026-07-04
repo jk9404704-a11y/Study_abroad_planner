@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Application Status
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="section-heading text-center mb-5"><span class="eyebrow">Application Status</span><h2 class="section-title">Follow your application progress</h2></div>
+        <div class="row g-4">
+            <div class="col-12">
+                <div class="application-step p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-2"><h5>Application Submitted</h5><span class="status-badge">Completed</span></div>
+                    <span>14 Jun 2026</span>
+                </div>
+                <div class="application-step p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-2"><h5>Documents Verified</h5><span class="status-badge">Completed</span></div>
+                    <span>18 Jun 2026</span>
+                </div>
+                <div class="application-step p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-2"><h5>University Review</h5><span class="status-badge">In Progress</span></div>
+                    <span>22 Jun 2026</span>
+                </div>
+                <div class="application-step p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-2"><h5>Offer Letter</h5><span class="status-badge">Pending</span></div>
+                    <span>Expected 01 Jul 2026</span>
+                </div>
+                <div class="application-step p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-2"><h5>Visa Process</h5><span class="status-badge">Pending</span></div>
+                    <span>Expected 15 Jul 2026</span>
+                </div>
+                <div class="application-step p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-2"><h5>Ready To Fly</h5><span class="status-badge">Upcoming</span></div>
+                    <span>Expected 01 Aug 2026</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

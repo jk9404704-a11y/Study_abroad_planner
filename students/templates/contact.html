@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="row gy-5">
+            <div class="col-lg-7">
+                <div class="contact-card section-glass p-5 shadow-soft">
+                    <div class="section-heading mb-4"><span class="eyebrow">Get in Touch</span><h2 class="section-title">We’re here to support your study abroad journey</h2></div>
+                    <form class="row g-4">
+                        <div class="col-md-6">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Your name" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" placeholder="Your email" required />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Subject</label>
+                            <input type="text" class="form-control" placeholder="Message subject" required />
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="6" placeholder="Write your message here" required></textarea>
+                        </div>
+                        <div class="col-12 text-end">
+                            <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="contact-info section-glass p-5 shadow-soft">
+                    <h4>Contact Information</h4>
+                    <p class="text-muted">Reach out for planning guidance, technical support or application help.</p>
+                    <div class="mt-4">
+                        <p><i class="fa-solid fa-phone me-3"></i>+1 234 567 890</p>
+                        <p><i class="fa-solid fa-envelope me-3"></i>support@studyplanner.com</p>
+                        <p><i class="fa-solid fa-location-dot me-3"></i>123 Campus Drive, City, Country</p>
+                    </div>
+                </div>
+                <div class="map-placeholder mt-4 shadow-soft">
+                    <p><i class="fa-solid fa-map-location-dot fa-2x mb-3"></i></p>
+                    <p>Google Map placeholder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

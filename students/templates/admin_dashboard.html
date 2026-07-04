@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+{% block content %}
+
+<section>
+<h2>ADMIN DASHBOARD</h2>
+
+<p><h4>👋 Welcome Admin ! </h4></p>
+<p><h4>Manage the Study Abroad Planner System.</h4></p>
+</section>
+
+<section>
+<h2>Admin Panel</h2>
+
+<ul>
+
+    <li>👨‍🎓 Manage Students</li>
+
+    <li>➕ Add Student</li>
+
+    <li>📝 View Student Records</li>
+
+    <li>🌍 Manage Countries</li>
+
+    <li>🏫 Manage Universities</li>
+
+    <li>📄 Manage Applications</li>
+
+    <li>📋 Verify Documents</li>
+
+    <li>🎓 Manage Scholarships</li>
+
+    <li>📊 View Reports</li>
+
+    <li>⚙ Website Settings</li>
+
+    <li>🚪 Logout</li>
+    
+
+</ul>
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+{% endblock %}

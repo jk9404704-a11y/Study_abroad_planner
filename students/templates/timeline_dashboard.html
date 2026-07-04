@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Study Timeline Dashboard
+{% endblock %}
+
+{% block content %}
+
+<section>
+
+<h2>STUDY TIMELINE DASHBOARD</h2>
+
+<p><strong>📅 Study Abroad Timeline</strong></p>
+
+<ul>
+
+<li>✔ Choose Country</li>
+
+<li>✔ Select University</li>
+
+<li>✔ Prepare IELTS</li>
+
+<li>✔ Arrange Documents</li>
+
+<li>✔ Apply for Admission</li>
+
+<li>✔ Apply for Scholarship</li>
+
+<li>✔ Apply for Student Visa</li>
+
+<li>✔ Book Flight</li>
+
+</ul>
+
+<p><a href="{% url 'dashboard' %}">⬅ Back to Dashboard</a></p>
+
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+
+{% endblock %}

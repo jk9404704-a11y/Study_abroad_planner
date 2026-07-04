@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}
+University Finder
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="section-heading text-center mb-5"><span class="eyebrow">University Finder</span><h2 class="section-title">Search top universities by country</h2></div>
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-6">
+                <div class="section-glass p-4 shadow-soft">
+                    <label class="form-label text-white">Select Country</label>
+                    <select class="form-select" aria-label="Select Country">
+                        <option>Canada</option>
+                        <option>Australia</option>
+                        <option>United Kingdom</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6">
+                <div class="university-card p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-3"><h5>University of Toronto</h5><span class="badge badge-status">#1</span></div>
+                    <p class="text-muted">Course: Data Science</p>
+                    <p class="text-muted">Country: Canada</p>
+                    <a href="#" class="btn btn-secondary mt-3">Apply</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="university-card p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-3"><h5>University of Melbourne</h5><span class="badge badge-status">#2</span></div>
+                    <p class="text-muted">Course: International Business</p>
+                    <p class="text-muted">Country: Australia</p>
+                    <a href="#" class="btn btn-secondary mt-3">Apply</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="university-card p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-3"><h5>Imperial College London</h5><span class="badge badge-status">#3</span></div>
+                    <p class="text-muted">Course: Engineering</p>
+                    <p class="text-muted">Country: United Kingdom</p>
+                    <a href="#" class="btn btn-secondary mt-3">Apply</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="university-card p-4 shadow-soft">
+                    <div class="d-flex justify-content-between align-items-center mb-3"><h5>Monash University</h5><span class="badge badge-status">#4</span></div>
+                    <p class="text-muted">Course: Computer Science</p>
+                    <p class="text-muted">Country: Australia</p>
+                    <a href="#" class="btn btn-secondary mt-3">Apply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

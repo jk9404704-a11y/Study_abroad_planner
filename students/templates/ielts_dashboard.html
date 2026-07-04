@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ielts Dashboard
+{% endblock %}
+
+{% block content %}
+<section>
+<h2>IELTS DASHBOARD</h2>
+</section>
+<section>
+
+<h2>📘 IELTS Modules</h2>
+
+
+<ul>
+    <li>Listening</li>
+    <li>Reading</li>
+    <li>Writing</li>
+    <li>Speaking</li>
+</ul>
+</section>
+
+<section>
+<h2>🎯 Target Band Score</h2>
+
+
+<ul>
+    <li>Overall Band: 6.5+</li>
+    <li>No Band Less Than 6</li>
+</ul>
+</section>
+<section>
+
+<h2>📝 Preparation Tips</h2>
+
+<ul>
+    <li>Practice Daily</li>
+    <li>Take Mock Tests</li>
+    <li>Improve Vocabulary</li>
+    <li>Manage Time Effectively</li>
+</ul>
+</section>
+
+<section>
+
+<h2>📅 Exam Status</h2>
+
+
+<p>Exam Date: Not Scheduled</p>
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+{% endblock %}
+

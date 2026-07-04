@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Budget Dashboard
+{% endblock %}
+
+{% block content %}
+<section>
+<h2>BUDGET DASHBOARD</h2>
+</section>
+<section>
+
+
+<h2>💰 Budget Planner</h2>
+
+
+<ul>
+
+    <li>Tuition Fees</li>
+
+    <li>Living Expenses</li>
+
+    <li>Total Estimated Budget</li>
+
+</ul>
+</section>
+<section>
+
+<h3>Additional Tools</h3>
+
+<ul>
+
+    <li>💱 Currency Converter</li>
+
+    <li>🎓 Scholarship Opportunities</li>
+
+    <li>📊 Budget Summary</li>
+
+</ul>    
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+{% endblock %}

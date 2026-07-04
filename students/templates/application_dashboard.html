@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Application Dashboard
+{% endblock %}
+
+{% block content %}
+<section>
+<h2>APPLICATION DASHBOARD</h2>
+
+
+<h2>📋 Application Status</h2>
+
+
+<ul>
+
+    <li>Application Submitted</li>
+
+    <li>Under Review</li>
+
+    <li>Accepted</li>
+
+    <li>Rejected</li>
+
+</ul>
+</section>
+<section>
+
+<h2>Documents</h2>
+
+
+<ul>
+
+    <li>Passport</li>
+
+    <li>IELTS Scorecard</li>
+
+    <li>Statement of Purpose</li>
+
+    <li>Offer Letter</li>
+
+    <li>Visa</li>
+
+</ul>    
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+{% endblock %}

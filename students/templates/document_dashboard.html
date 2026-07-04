@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+ Document Dashboard
+{% endblock %}
+
+{% block content %}
+<section>
+<h2>DOCUMENT DASHBOARD</h2>
+</section>
+<section>
+
+<h2>📄 Required Documents</h2>
+
+<ul>
+    <li>Passport</li>
+    <li>Academic Certificates</li>
+    <li>IELTS Scorecard</li>
+    <li>Statement of Purpose (SOP)</li>
+    <li>Letters of Recommendation (LOR)</li>
+</ul>
+</section>
+<section>
+
+<h2>✅ Document Status</h2>
+
+<ul>
+    <li>Passport - Available</li>
+    <li>Certificates - Pending</li>
+    <li>IELTS Result - Pending</li>
+    <li>SOP - In Progress</li>
+</ul>
+</section>
+<section>
+<h2>📌 Checklist</h2>
+
+<ul>
+    <li>Verify All Documents</li>
+    <li>Scan Copies</li>
+    <li>Keep Original Documents Safe</li>
+</ul>
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+{% endblock %}

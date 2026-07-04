@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Country Selection
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <span class="eyebrow">Country Selection</span>
+            <h2 class="section-title">Choose your study destination</h2>
+            <p class="text-muted">Compare tuition, living costs and IELTS requirements for the most popular international study destinations.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <h3>Canada</h3>
+                            <span class="badge badge-status">Top destination</span>
+                        </div>
+                        <img src="https://flagcdn.com/ca.svg" alt="Canada flag" width="52" />
+                    </div>
+                    <ul class="list-unstyled text-muted">
+                        <li><strong>Tuition Fee:</strong> $18,000 / year</li>
+                        <li><strong>Living Cost:</strong> $12,000 / year</li>
+                        <li><strong>IELTS Requirement:</strong> 6.5 overall</li>
+                    </ul>
+                    <a href="{% url 'country_dashboard' %}" class="btn btn-primary mt-4">View Universities</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <h3>Australia</h3>
+                            <span class="badge badge-status">Popular choice</span>
+                        </div>
+                        <img src="https://flagcdn.com/au.svg" alt="Australia flag" width="52" />
+                    </div>
+                    <ul class="list-unstyled text-muted">
+                        <li><strong>Tuition Fee:</strong> $20,000 / year</li>
+                        <li><strong>Living Cost:</strong> $14,000 / year</li>
+                        <li><strong>IELTS Requirement:</strong> 6.5 overall</li>
+                    </ul>
+                    <a href="{% url 'country_dashboard' %}" class="btn btn-primary mt-4">View Universities</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <h3>United Kingdom</h3>
+                            <span class="badge badge-status">High demand</span>
+                        </div>
+                        <img src="https://flagcdn.com/gb.svg" alt="UK flag" width="52" />
+                    </div>
+                    <ul class="list-unstyled text-muted">
+                        <li><strong>Tuition Fee:</strong> $22,000 / year</li>
+                        <li><strong>Living Cost:</strong> $13,500 / year</li>
+                        <li><strong>IELTS Requirement:</strong> 6.5 overall</li>
+                    </ul>
+                    <a href="{% url 'country_dashboard' %}" class="btn btn-primary mt-4">View Universities</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

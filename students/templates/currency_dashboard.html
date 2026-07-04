@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Currency Dashboard
+{% endblock %}
+
+{% block content %}
+
+<section>
+
+<h2>CURRENCY DASHBOARD</h2>
+
+<p><strong>💱 Currency Converter</strong></p>
+
+<p>
+Compare estimated expenses using different currencies for better financial planning.
+</p>
+
+<ul>
+
+<li>💵 Indian Rupee (INR)</li>
+
+<li>💲 US Dollar (USD)</li>
+
+<li>💶 Euro (EUR)</li>
+
+<li>💷 British Pound (GBP)</li>
+
+<li>💴 Canadian Dollar (CAD)</li>
+
+<li>💰 Estimated Living Expenses</li>
+
+<li>📊 Tuition Fee Comparison</li>
+
+</ul>
+
+<p><a href="{% url 'dashboard' %}">⬅ Back to Dashboard</a></p>
+
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+
+{% endblock %}

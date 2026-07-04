@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Scholarship Dashboard
+{% endblock %}
+
+{% block content %}
+<section>
+<h2>SCHOLARSHIP DASHBOARD</h2>
+</section>
+
+<section>
+
+<h2>🎓 Available Scholarships</h2>
+
+<ul>
+    <li>Government Scholarships</li>
+    <li>University Scholarships</li>
+    <li>Merit-Based Scholarships</li>
+    <li>Need-Based Scholarships</li>
+</ul>
+
+</section>
+<section>
+
+<h2>📋 Eligibility Criteria</h2>
+
+<ul>
+    <li>Good Academic Record</li>
+    <li>Valid IELTS Score</li>
+    <li>Required Documents</li>
+</ul>
+
+</section>
+<section>
+
+<h2>📄 Required Documents</h2>
+
+<ul>
+    <li>Passport</li>
+    <li>Academic Certificates</li>
+    <li>IELTS Scorecard</li>
+    <li>Statement of Purpose (SOP)</li>
+</ul>
+
+</section>
+<section>
+
+<h2>💰 Scholarship Benefits</h2>
+
+<ul>
+    <li>Tuition Fee Waiver</li>
+    <li>Monthly Stipend</li>
+    <li>Living Expenses Support</li>
+</ul>
+</section>
+<a href="{% url 'dashboard' %}" class="back-btn">
+⬅ Back to Dashboard
+</a>
+{% endblock %}

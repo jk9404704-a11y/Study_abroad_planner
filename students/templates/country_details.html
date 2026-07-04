@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Country Details
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+        <div class="row gy-5">
+            <div class="col-lg-5">
+                <div class="country-info-card p-5 shadow-soft text-center">
+                    <img src="https://flagcdn.com/ca.svg" alt="Canada Flag" width="90" class="mb-4" />
+                    <h3>Canada</h3>
+                    <p class="text-muted">A welcoming destination with world-class universities, strong work opportunities and an excellent quality of life.</p>
+                    <div class="mt-4 text-start">
+                        <p><strong>Tuition Fees:</strong> $18,000 - $25,000 / year</p>
+                        <p><strong>Living Cost:</strong> $12,000 - $15,000 / year</p>
+                        <p><strong>IELTS Requirement:</strong> 6.5 overall</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="section-heading mb-4"><span class="eyebrow">Country Overview</span><h2 class="section-title">Why study in Canada?</h2></div>
+                <p>Canada offers diverse programs, strong student support systems, post-study work options and a stable environment for international learners. With excellent research facilities and a welcoming culture, Canada remains one of the top destinations for global education.</p>
+                <div class="row g-4 mt-4">
+                    <div class="col-md-6">
+                        <div class="misc-card p-4 shadow-soft"><h4>Top Universities</h4><ul class="text-muted"><li>University of Toronto</li><li>McGill University</li><li>University of British Columbia</li></ul></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="misc-card p-4 shadow-soft"><h4>Popular Courses</h4><ul class="text-muted"><li>Computer Science</li><li>Business Management</li><li>Engineering</li></ul></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="misc-card p-4 shadow-soft"><h4>Work Opportunities</h4><p class="text-muted">International students can work up to 20 hours per week during semesters and apply for post-graduation work permits upon completion.</p></div>
+                    </div>
+                    <div class="col-md-6 d-flex align-items-end">
+                        <a href="{% url 'university_dashboard' %}" class="btn btn-primary btn-lg w-100">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

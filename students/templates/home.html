@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<section class="hero-section py-5">
+    <div class="container">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-6">
+                <span class="eyebrow">Study Abroad Planner</span>
+                <h1 class="hero-title">Design your international education journey with clarity and confidence.</h1>
+                <p class="hero-text">Explore top destinations, manage your IELTS goals, map your budget, track documents and applications, and find scholarships in one polished student dashboard.</p>
+                <div class="hero-buttons d-flex flex-wrap gap-3 mt-4">
+                    <a href="{% url 'country_dashboard' %}" class="btn btn-primary btn-lg">Explore Countries</a>
+                    <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">Login</a>
+                    <a href="{% url 'register' %}" class="btn btn-glass btn-lg">Register</a>
+                </div>
+                <div class="hero-highlights row gx-3 gy-3 mt-5">
+                    <div class="col-sm-6">
+                        <div class="stat-card">
+                            <h3>120+</h3>
+                            <p>Universities</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="stat-card">
+                            <h3>60%</h3>
+                            <p>Scholarship Coverage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center">
+                <div class="hero-illustration shadow-soft">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=900&q=80" alt="Study Abroad Illustration" class="img-fluid rounded-4" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-glass section-padding">
+    <div class="container">
+        <div class="section-heading text-center mb-5">
+            <span class="eyebrow">Features</span>
+            <h2 class="section-title">Powerful planning tools for every stage of your study abroad journey</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-globe"></i><h5>Country Selection</h5><p>Compare fees, living costs and visa readiness for top destinations.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-book-open-reader"></i><h5>IELTS Tracker</h5><p>Monitor your progress and stay motivated until you reach your target score.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-wallet"></i><h5>Budget Planner</h5><p>Estimate tuition, living expenses and additional costs quickly.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-file-circle-check"></i><h5>Document Checklist</h5><p>Track passports, SOPs, LORs, visa documents and more.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-tasks"></i><h5>Application Tracker</h5><p>Follow each admission milestone from submission to boarding.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-award"></i><h5>Scholarship Finder</h5><p>Locate awards and deadlines that match your study destination.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-shield-halved"></i><h5>Visa Readiness</h5><p>Assess your application status and prepare for visa submission.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-building-columns"></i><h5>University Finder</h5><p>Search top-ranked schools with program details and country context.</p></div></div>
+            <div class="col-md-6 col-lg-4"><div class="feature-card"><i class="fa-solid fa-calendar-check"></i><h5>Timeline Planner</h5><p>Create a strategic plan for exams, applications and travel.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center gy-5">
+            <div class="col-lg-6">
+                <div class="section-heading"><span class="eyebrow">Why Choose Us</span><h2 class="section-title">A modern platform built for international student success</h2></div>
+                <ul class="list-icons">
+                    <li><i class="fa-solid fa-check"></i>All key planning tools grouped in one dashboard.</li>
+                    <li><i class="fa-solid fa-check"></i>Beautiful, responsive interface for mobile and desktop.</li>
+                    <li><i class="fa-solid fa-check"></i>Personalized guidance for top countries and scholarships.</li>
+                    <li><i class="fa-solid fa-check"></i>Live progress tracking and study goals support.</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="about-grid">
+                    <div class="about-card"><h5>Expert Guidance</h5><p>Designed for students who need a clear study-abroad roadmap.</p></div>
+                    <div class="about-card"><h5>Smart Organisation</h5><p>Keep deadlines, documents and applications on track.</p></div>
+                    <div class="about-card"><h5>Global Options</h5><p>Access information for Canada, Australia, the UK and more.</p></div>
+                    <div class="about-card"><h5>Secure Planning</h5><p>Use polished tools to stay confident and reduce stress.</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-glass section-padding py-5">
+    <div class="container text-center">
+        <div class="section-heading mb-5"><span class="eyebrow">Global impact</span><h2 class="section-title">Real outcomes for ambitious students</h2></div>
+        <div class="row gy-4">
+            <div class="col-sm-6 col-md-3"><div class="metric-card"><h3>145+</h3><p>Universities reviewed</p></div></div>
+            <div class="col-sm-6 col-md-3"><div class="metric-card"><h3>95%</h3><p>Application confidence</p></div></div>
+            <div class="col-sm-6 col-md-3"><div class="metric-card"><h3>88%</h3><p>Successful planning rate</p></div></div>
+            <div class="col-sm-6 col-md-3"><div class="metric-card"><h3>32</h3><p>Countries supported</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-padding">
+    <div class="container">
+        <div class="section-heading text-center mb-5"><span class="eyebrow">Testimonials</span><h2 class="section-title">Students love the planning experience</h2></div>
+        <div class="row g-4">
+            <div class="col-md-4"><div class="testimonial-card section-glass"><p>“This platform made my study abroad plan feel achievable. The checklist and budget tools saved me hours.”</p><div class="testimonial-author"><strong>Amelia R.</strong><span>Canada student</span></div></div></div>
+            <div class="col-md-4"><div class="testimonial-card section-glass"><p>“I could clearly see my IELTS progress and choose the right universities. The dashboard layout is excellent.”</p><div class="testimonial-author"><strong>Rohan S.</strong><span>Australia applicant</span></div></div></div>
+            <div class="col-md-4"><div class="testimonial-card section-glass"><p>“The scholarship finder helped me identify awards I would have missed otherwise. Very polished and modern.”</p><div class="testimonial-author"><strong>Sara L.</strong><span>UK aspirant</span></div></div></div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
