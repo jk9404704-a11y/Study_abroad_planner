@@ -1,5 +1,7 @@
-from django.shortcuts import render
-
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth import login as auth_login, logout as auth_logout
+from .forms import RegisterForm, LoginForm
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -10,11 +12,35 @@ def about(request):
 def contact(request):
     return render(request,'contact.html')
 
-def login(request):
-    return render(request,'login.html')
+def login_view(request):
+    if request.method == "POST":
+        form = LoginForm(request, data=request.POST)
+
+        if form.is_valid():
+            user = form.get_user()
+            auth_login(request, user)
+            messages.success(request, "Login Successful!")
+            return redirect("dashboard")
+    else:
+        form = LoginForm()
+
+    return render(request, "login.html", {"form": form})
 
 def register(request):
-    return render(request,'register.html')
+    if request.method == "POST":
+        form = RegisterForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Registration Successful!")
+            return redirect("login")
+    else:
+        form = RegisterForm()
+
+    return render(request, "register.html", {"form": form})
+def logout_view(request):
+    auth_logout(request)
+    return redirect("login")
 
 def dashboard(request):
     return render(request,'dashboard.html')

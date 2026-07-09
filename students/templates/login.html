@@ -14,14 +14,23 @@ Login
                         <span class="eyebrow">Welcome Back</span>
                         <h2 class="section-title">Login to your planner account</h2>
                     </div>
-                    <form class="auth-form">
+                    <form method="POST" class="auth-form">
+                        {% csrf_token %}
                         <div class="mb-4">
-                            <label class="form-label">Email</label>
-                            <input type="email" class="form-control" placeholder="Enter your email" required />
+                            <label class="form-label">Username</label>
+                            <input type="text"
+                                   name="username"
+                                   class="form-control"
+                                   placeholder="Enter Username"
+                                   required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" placeholder="Enter your password" required />
+                            <input type="password"
+                                   name="password"
+                                   class="form-control"
+                                   placeholder="Enter Password"
+                                   required>
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <div class="form-check">
