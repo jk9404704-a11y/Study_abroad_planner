@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Document Checklist
+{% endblock %}
+
+{% block content %}
+
+<section class="section-padding">
+<div class="container">
+
+<div class="section-heading text-center mb-5">
+<span class="eyebrow">Document Checklist</span>
+<h2 class="section-title">Keep your application documents organized</h2>
+</div>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="row">
+
+<div class="col-lg-8">
+
+<div class="row g-3">
+
+<div class="col-md-6">
+<label><input type="checkbox" name="passport"> Passport</label>
+</div>
+
+<div class="col-md-6">
+<label><input type="checkbox" name="ielts"> IELTS Result</label>
+</div>
+
+<div class="col-md-6">
+<label><input type="checkbox" name="sop"> SOP</label>
+</div>
+
+<div class="col-md-6">
+<label><input type="checkbox" name="lor"> LOR</label>
+</div>
+
+<div class="col-md-6">
+<label><input type="checkbox" name="resume"> Resume</label>
+</div>
+
+<div class="col-md-6">
+<label><input type="checkbox" name="offer_letter"> Offer Letter</label>
+</div>
+
+<div class="col-md-6">
+<label><input type="checkbox" name="visa"> Visa</label>
+</div>
+
+<div class="col-md-12 mt-4">
+<button class="btn btn-primary">
+Calculate Progress
+</button>
+</div>
+
+</div>
+
+</div>
+
+<div class="col-lg-4">
+
+<h4>Progress</h4>
+
+<div class="progress">
+
+<div class="progress-bar"
+
+style="width:{% if progress %}{{ progress }}{% else %}0{% endif %}%;"
+
+aria-valuenow="{{ progress }}"
+
+aria-valuemin="0"
+
+aria-valuemax="100">
+
+</div>
+
+</div>
+
+<h2 class="mt-3">
+
+{% if progress %}
+
+{{ progress }}%
+
+{% else %}
+
+0%
+
+{% endif %}
+
+</h2>
+
+</div>
+
+</div>
+
+</form>
+
+</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Application Status
+{% endblock %}
+
+{% block content %}
+
+<section class="section-padding">
+<div class="container">
+
+<div class="section-heading text-center mb-5">
+<span class="eyebrow">Application Status</span>
+<h2 class="section-title">Track Your Application</h2>
+</div>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="mb-4">
+
+<label class="form-label">
+Select Current Status
+</label>
+
+<select name="status" class="form-select">
+
+<option value="Applied">Applied</option>
+
+<option value="Under Review">Under Review</option>
+
+<option value="Accepted">Accepted</option>
+
+<option value="Rejected">Rejected</option>
+
+</select>
+
+</div>
+
+<button class="btn btn-primary mb-5">
+Update Status
+</button>
+
+</form>
+
+<div class="application-step p-4 shadow-soft">
+
+{% if status %}
+
+<h4>Current Status</h4>
+
+<h2>{{ status }}</h2>
+
+{% else %}
+
+<h4>No Status Selected Yet</h4>
+
+{% endif %}
+
+</div>
+
+</div>
+</section>
+
+{% endblock %}

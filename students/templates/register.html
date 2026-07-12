@@ -14,6 +14,13 @@ Register
                         <span class="eyebrow">Create Account</span>
                         <h2 class="section-title">Register and start planning</h2>
                     </div>
+                    {% if messages %}
+                       {% for message in messages %}
+                           <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                           </div>
+                       {% endfor %}
+                    {% endif %}
                     <form method="POST" class="auth-form">
                         {% csrf_token %}
                         <div class="mb-4">

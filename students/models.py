@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 # country model
 class Country(models.Model):
     country_name = models.CharField(max_length=100)
+    flag = models.URLField(blank=True, null=True)
     tuition_fee = models.DecimalField(max_digits=10, decimal_places=2)
     living_cost = models.DecimalField(max_digits=10, decimal_places=2)
     ielts_requirement = models.DecimalField(max_digits=3, decimal_places=1)

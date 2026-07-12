@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Country Selection
+{% endblock %}
+
+{% block content %}
+<section class="section-padding">
+    <div class="container">
+
+        <div class="section-heading text-center mb-5">
+            <span class="eyebrow">Country Selection</span>
+            <h2 class="section-title">Choose your study destination</h2>
+            <p class="text-muted">
+                Compare tuition, living costs and IELTS requirements for the most popular international study destinations.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for country in countries %}
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft">
+
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <div>
+                            <h3>{{ country.country_name }}</h3>
+                            <span class="badge badge-status">Study Destination</span>
+                        </div>
+                        {% if country.flag %}
+                        <img src="{{ country.flag }}" alt="{{ country.country_name }}" width="52">
+                        {% endif %}
+                    </div>
+
+                    <ul class="list-unstyled text-muted">
+                        <li><strong>Tuition Fee:</strong> ${{ country.tuition_fee }}</li>
+                        <li><strong>Living Cost:</strong> ${{ country.living_cost }}</li>
+                        <li><strong>IELTS Requirement:</strong> {{ country.ielts_requirement }}</li>
+                    </ul>
+
+                    <a href="{% url 'country_details' country.id %}" class="btn btn-primary mt-4"></a>
+                        View Universities
+                    </a>
+
+                </div>
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+                <h4>No Countries Available</h4>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+{% endblock %}

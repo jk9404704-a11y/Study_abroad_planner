@@ -7,50 +7,101 @@ Currency Converter
 {% block content %}
 <section class="section-padding">
     <div class="container">
-        <div class="section-heading text-center mb-5"><span class="eyebrow">Currency Converter</span><h2 class="section-title">Quick currency conversion for planning expenses</h2></div>
-        <div class="row justify-content-center gy-4">
-            <div class="col-lg-6">
-                <div class="section-glass p-5 shadow-soft">
-                    <form id="currencyForm">
-                        <div class="mb-4">
-                            <label class="form-label">Amount</label>
-                            <input id="amountValue" type="number" class="form-control" placeholder="1000" required />
-                        </div>
-                        <div class="mb-4 row gx-3">
-                            <div class="col-sm-6">
-                                <label class="form-label">From Currency</label>
-                                <select id="fromCurrency" class="form-select">
-                                    <option value="USD">USD</option>
-                                    <option value="EUR">EUR</option>
-                                    <option value="GBP">GBP</option>
-                                    <option value="CAD">CAD</option>
-                                    <option value="AUD">AUD</option>
-                                </select>
-                            </div>
-                            <div class="col-sm-6">
-                                <label class="form-label">To Currency</label>
-                                <select id="toCurrency" class="form-select">
-                                    <option value="EUR">EUR</option>
-                                    <option value="USD">USD</option>
-                                    <option value="GBP">GBP</option>
-                                    <option value="CAD">CAD</option>
-                                    <option value="AUD">AUD</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Convert</button>
-                    </form>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="section-glass p-5 shadow-soft text-center">
-                    <h4>Converted Amount</h4>
-                    <div class="budget-output p-4 rounded-4 mt-4">
-                        <p id="convertedAmount" class="fs-4 text-white mb-0">Enter values to see the result</p>
-                    </div>
-                </div>
-            </div>
+
+        <div class="section-heading text-center mb-5">
+            <span class="eyebrow">Currency Converter</span>
+            <h2 class="section-title">Quick Currency Conversion</h2>
         </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-6">
+
+                <div class="section-glass p-5 shadow-soft">
+
+                    <form method="POST">
+                        {% csrf_token %}
+
+                        <div class="mb-4">
+                            <label>Amount</label>
+                            <input
+                                type="number"
+                                step="0.01"
+                                name="amount"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <label>From</label>
+
+                                <select name="from_currency" class="form-select">
+
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="AUD">AUD</option>
+
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <label>To</label>
+
+                                <select name="to_currency" class="form-select">
+
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                    <option value="GBP">GBP</option>
+                                    <option value="CAD">CAD</option>
+                                    <option value="AUD">AUD</option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+                        <br>
+
+                        <button class="btn btn-primary w-100">
+                            Convert
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="section-glass p-5 shadow-soft text-center">
+
+                    <h3>Converted Amount</h3>
+
+                    <br>
+
+                    {% if converted_amount %}
+                        <h2>{{ converted_amount }}</h2>
+                    {% else %}
+                        <h4>Enter values to convert</h4>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 </section>
+
+
 {% endblock %}

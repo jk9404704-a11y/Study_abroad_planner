@@ -14,6 +14,13 @@ Login
                         <span class="eyebrow">Welcome Back</span>
                         <h2 class="section-title">Login to your planner account</h2>
                     </div>
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
                     <form method="POST" class="auth-form">
                         {% csrf_token %}
                         <div class="mb-4">

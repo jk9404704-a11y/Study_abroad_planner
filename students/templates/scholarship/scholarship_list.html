@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Scholarship Finder
+{% endblock %}
+
+{% block content %}
+
+<section class="section-padding">
+    <div class="container">
+
+        <div class="section-heading text-center mb-5">
+            <span class="eyebrow">Scholarships</span>
+            <h2 class="section-title">Find Scholarship Opportunities</h2>
+            <p class="text-muted">
+                Scholarships added by the administrator are displayed below.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            {% for scholarship in scholarships %}
+
+            <div class="col-md-6">
+
+                <div class="scholarship-card p-4 shadow-soft">
+
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+
+                        <div>
+                            <h5>{{ scholarship.scholarship_name }}</h5>
+                            <p class="text-muted">
+                                Amount: {{ scholarship.amount }}
+                            </p>
+                        </div>
+
+                        <span class="badge badge-status">
+                            Open
+                        </span>
+
+                    </div>
+
+                    <p class="text-muted">
+                        <strong>Country:</strong>
+                        {{ scholarship.country.country_name }}
+                    </p>
+
+                    <p class="text-muted">
+                        <strong>Eligibility:</strong>
+                        {{ scholarship.eligibility }}
+                    </p>
+
+                    <p class="text-muted">
+                        <strong>Deadline:</strong>
+                        {{ scholarship.deadline }}
+                    </p>
+
+                    <a href="#" class="btn btn-secondary mt-3">
+                        Apply
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12 text-center">
+                <h4>No Scholarships Available</h4>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
