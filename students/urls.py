@@ -13,8 +13,11 @@ urlpatterns = [
     # Dashboards
     path('dashboard/', views.dashboard, name='dashboard'),
     path('admin_dashboard/', views.admin_dashboard, name='admin_dashboard'),
+
     path('country_dashboard/', views.country_dashboard, name='country_dashboard'),
     path('country-details/<int:id>/', views.country_details, name='country_details'),
+    
+
     path('university_dashboard/', views.university_dashboard, name='university_dashboard'),
     path('budget_dashboard/', views.budget_dashboard, name='budget_dashboard'),
     path('application_dashboard/', views.application_dashboard, name='application_dashboard'),

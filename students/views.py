@@ -91,11 +91,14 @@ def admin_dashboard(request):
 
 # country views
 
+
+
 def country_dashboard(request):
     countries = Country.objects.all()
     return render(request, 'country/country_list.html', {
         'countries': countries
     })
+
 
 def country_details(request, id):
     country = get_object_or_404(Country, id=id)
@@ -105,6 +108,7 @@ def country_details(request, id):
         'country': country,
         'universities': universities,
     })
+
 
 # university views
 
@@ -116,31 +120,59 @@ def university_dashboard(request):
     })
 
 # budget views
+
 def budget_dashboard(request):
-    total = None
+
+    budget = Budget.objects.filter(user=request.user).first()
+
+    total = 0
 
     if request.method == "POST":
-        tuition = float(request.POST.get("tuition_fee"))
-        living = float(request.POST.get("living_cost"))
-        other = float(request.POST.get("other_expenses"))
 
-        total = tuition + living + other
+        if budget is None:
+            budget = Budget(user=request.user)
+
+        budget.tuition_fee = request.POST.get("tuition_fee")
+        budget.living_cost = request.POST.get("living_cost")
+        budget.other_expenses = request.POST.get("other_expenses")
+
+        budget.save()
+
+    budget = Budget.objects.filter(user=request.user).first()
+
+    if budget:
+        total = budget.total_budget()
 
     return render(request, "budget/budget_list.html", {
-        "total": total
+        "budget": budget,
+        "total": total,
     })
 
 # application views
 
 def application_dashboard(request):
 
-    status = None
+    application = Application.objects.filter(user=request.user).first()
+    universities = University.objects.all()
 
     if request.method == "POST":
-        status = request.POST.get("status")
+
+        if application is None:
+            application = Application(user=request.user)
+
+        application.user = request.user
+        application.university = University.objects.get(
+            id=request.POST.get("university")
+        )
+        application.status = request.POST.get("status")
+
+        application.save()
+
+    application = Application.objects.filter(user=request.user).first()
 
     return render(request, "application/application_list.html", {
-        "status": status
+        "application": application,
+        "universities": universities,
     })
 
 # scholarship views
@@ -155,46 +187,98 @@ def scholarship_dashboard(request):
 # ielts views
 
 def ielts_dashboard(request):
-    progress = None
+
+    ielts = IELTS.objects.filter(user=request.user).first()
+
+    progress = 0
 
     if request.method == "POST":
-        target = float(request.POST.get("target_score"))
-        current = float(request.POST.get("current_score"))
 
-        progress = round((current / target) * 100, 1)
+        if ielts is None:
+            ielts = IELTS(user=request.user)
+
+        ielts.target_score = request.POST.get("target_score")
+        ielts.current_score = request.POST.get("current_score")
+
+        ielts.save()
+
+    ielts = IELTS.objects.filter(user=request.user).first()
+
+    if ielts:
+
+        progress = round(
+            (float(ielts.current_score) / float(ielts.target_score)) * 100,
+            1
+        )
 
         if progress > 100:
             progress = 100
 
     return render(request, "ielts/ielts_list.html", {
-        "progress": progress
+        "ielts": ielts,
+        "progress": progress,
     })
 
 # document checklist views
 
 def document_dashboard(request):
 
-    progress = 0
+    checklist = DocumentChecklist.objects.filter(user=request.user).first()
 
     if request.method == "POST":
 
-        documents = [
-            request.POST.get("passport"),
-            request.POST.get("ielts"),
-            request.POST.get("sop"),
-            request.POST.get("lor"),
-            request.POST.get("resume"),
-            request.POST.get("offer_letter"),
-            request.POST.get("visa")
-        ]
+        if checklist is None:
 
-        completed = sum(1 for doc in documents if doc)
+            checklist = DocumentChecklist(user=request.user)
+
+        checklist.passport = bool(request.POST.get("passport"))
+        checklist.ielts = bool(request.POST.get("ielts"))
+        checklist.sop = bool(request.POST.get("sop"))
+        checklist.lor = bool(request.POST.get("lor"))
+        checklist.resume = bool(request.POST.get("resume"))
+        checklist.offer_letter = bool(request.POST.get("offer_letter"))
+        checklist.visa = bool(request.POST.get("visa"))
+
+        checklist.save()
+
+    checklist = DocumentChecklist.objects.filter(user=request.user).first()
+
+    progress = 0
+
+    if checklist:
+
+        completed = 0
+
+        if checklist.passport:
+            completed += 1
+
+        if checklist.ielts:
+            completed += 1
+
+        if checklist.sop:
+            completed += 1
+
+        if checklist.lor:
+            completed += 1
+
+        if checklist.resume:
+            completed += 1
+
+        if checklist.offer_letter:
+            completed += 1
+
+        if checklist.visa:
+            completed += 1
 
         progress = round((completed / 7) * 100)
 
-    return render(request, "documents/document_list.html", {
-        "progress": progress
-    })
+    return render(request,
+                  "documents/document_list.html",
+                  {
+                      "checklist": checklist,
+                      "progress": progress,
+                  })
+
 
 # currency views
 
@@ -208,6 +292,8 @@ def currency_dashboard(request):
         "GBP": 0.79,
         "CAD": 1.37,
         "AUD": 1.53,
+        "INR": 85.50,
+    
     }
 
     if request.method == "POST":
@@ -226,20 +312,25 @@ def currency_dashboard(request):
 
 def timeline_dashboard(request):
 
+    timeline = Timeline.objects.filter(user=request.user).first()
+
     if request.method == "POST":
 
-        Timeline.objects.create(
-            user=request.user,
-            ielts_date=request.POST.get("ielts_date"),
-            application_date=request.POST.get("application_date"),
-            visa_date=request.POST.get("visa_date"),
-            fly_date=request.POST.get("fly_date"),
-        )
+        if timeline is None:
+            timeline = Timeline(user=request.user)
+
+        timeline.ielts_date = request.POST.get("ielts_date")
+        timeline.application_date = request.POST.get("application_date")
+        timeline.visa_date = request.POST.get("visa_date")
+        timeline.fly_date = request.POST.get("fly_date")
+
+        timeline.save()
 
     timelines = Timeline.objects.filter(user=request.user)
 
     return render(request, "timeline/timeline_list.html", {
-        "timelines": timelines
+        "timeline": timeline,
+        "timelines": timelines,
     })
 
 # visa readiness views

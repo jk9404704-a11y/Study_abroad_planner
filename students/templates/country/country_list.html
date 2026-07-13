@@ -5,14 +5,21 @@ Country Selection
 {% endblock %}
 
 {% block content %}
+
 <section class="section-padding">
+
     <div class="container">
 
         <div class="section-heading text-center mb-5">
             <span class="eyebrow">Country Selection</span>
-            <h2 class="section-title">Choose your study destination</h2>
+
+            <h2 class="section-title">
+                Choose Your Study Destination
+            </h2>
+
             <p class="text-muted">
-                Compare tuition, living costs and IELTS requirements for the most popular international study destinations.
+                Explore popular study destinations and compare tuition fees,
+                living costs and IELTS requirements.
             </p>
         </div>
 
@@ -21,35 +28,64 @@ Country Selection
             {% for country in countries %}
 
             <div class="col-md-4">
-                <div class="country-card p-4 shadow-soft">
 
-                    <div class="d-flex align-items-center justify-content-between mb-4">
-                        <div>
-                            <h3>{{ country.country_name }}</h3>
-                            <span class="badge badge-status">Study Destination</span>
-                        </div>
+                <div class="country-card p-4 shadow-soft h-100">
+
+                    <div class="text-center mb-3">
+
                         {% if country.flag %}
-                        <img src="{{ country.flag }}" alt="{{ country.country_name }}" width="52">
+                        <img src="{{ country.flag }}"
+                             alt="{{ country.country_name }}"
+                             width="70"
+                             class="mb-3">
                         {% endif %}
+
+                        <h4>{{ country.country_name }}</h4>
+
+                        <span class="badge badge-status">
+                            Study Destination
+                        </span>
+
                     </div>
 
-                    <ul class="list-unstyled text-muted">
-                        <li><strong>Tuition Fee:</strong> ${{ country.tuition_fee }}</li>
-                        <li><strong>Living Cost:</strong> ${{ country.living_cost }}</li>
-                        <li><strong>IELTS Requirement:</strong> {{ country.ielts_requirement }}</li>
-                    </ul>
+                    <hr>
 
-                    <a href="{% url 'country_details' country.id %}" class="btn btn-primary mt-4"></a>
-                        View Universities
-                    </a>
+                    <p>
+                        <strong>💰 Tuition Fee:</strong><br>
+                        ${{ country.tuition_fee }}
+                    </p>
+
+                    <p>
+                        <strong>🏠 Living Cost:</strong><br>
+                        ${{ country.living_cost }}
+                    </p>
+
+                    <p>
+                        <strong>📖 IELTS Requirement:</strong><br>
+                        {{ country.ielts_requirement }}
+                    </p>
+
+                    <div class="text-center mt-4">
+
+                        <a href="{% url 'country_details' country.id %}"
+                           class="btn btn-primary">
+
+                            View Universities
+
+                        </a>
+
+                    </div>
 
                 </div>
+
             </div>
 
             {% empty %}
 
             <div class="col-12 text-center">
-                <h4>No Countries Available</h4>
+
+                <h3>No Countries Available</h3>
+
             </div>
 
             {% endfor %}
@@ -57,5 +93,7 @@ Country Selection
         </div>
 
     </div>
+
 </section>
+
 {% endblock %}

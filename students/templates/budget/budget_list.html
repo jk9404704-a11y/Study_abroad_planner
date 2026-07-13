@@ -15,15 +15,15 @@ Budget Planner
                         {% csrf_token %}
                         <div class="mb-4">
                             <label class="form-label">Tuition Fee</label>
-                            <input type="number" name="tuition_fee" class="form-control" placeholder="18000" required>
+                            <input type="number" name="tuition_fee" class="form-control"  value="{{ budget.tuition_fee|default:'' }}" placeholder="18000" required>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Living Cost</label>
-                            <input type="number" name="living_cost" class="form-control" placeholder="12000" required>
+                            <input type="number" name="living_cost" class="form-control"  value="{{ budget.living_cost|default:'' }}" placeholder="12000" required>
                         </div>
                         <div class="mb-4">
                             <label class="form-label">Other Expenses</label>
-                            <input type="number" name="other_expenses" class="form-control" placeholder="3000" required>
+                            <input type="number" name="other_expenses" class="form-control"  value="{{ budget.other_expenses|default:'' }}" placeholder="3000" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg w-100">Calculate Budget</button>
                     </form>

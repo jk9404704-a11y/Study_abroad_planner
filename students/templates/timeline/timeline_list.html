@@ -23,22 +23,22 @@ Timeline Planner
 
                 <div class="mb-3">
                     <label class="form-label">IELTS Date</label>
-                    <input type="date" name="ielts_date" class="form-control" required>
+                    <input type="date" name="ielts_date" class="form-control" value="{{ timeline.ielts_date|date:'Y-m-d' }}"required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Application Date</label>
-                    <input type="date" name="application_date" class="form-control" required>
+                    <input type="date" name="application_date" class="form-control" value="{{ timeline.application_date|date:'Y-m-d' }}" required>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">Visa Date</label>
-                    <input type="date" name="visa_date" class="form-control" required>
+                    <input type="date" name="visa_date" class="form-control" value="{{ timeline.visa_date|date:'Y-m-d' }}" required>
                 </div>
 
                 <div class="mb-4">
                     <label class="form-label">Fly Date</label>
-                    <input type="date" name="fly_date" class="form-control" required>
+                    <input type="date" name="fly_date" class="form-control" value="{{ timeline.fly_date|date:'Y-m-d' }}" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">

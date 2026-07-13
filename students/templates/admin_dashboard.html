@@ -6,44 +6,135 @@ Admin Dashboard
 
 {% block content %}
 
-<section>
-<h2>ADMIN DASHBOARD</h2>
+<section class="section-padding">
 
-<p><h4>👋 Welcome Admin ! </h4></p>
-<p><h4>Manage the Study Abroad Planner System.</h4></p>
+    <div class="container">
+
+        <div class="section-heading text-center mb-5">
+            <span class="eyebrow">Administrator Panel</span>
+            <h2 class="section-title">Welcome Admin 👋</h2>
+            <p class="text-muted">
+                Manage the complete Study Abroad Planner System from one dashboard.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>🌍</h3>
+                    <h5>Countries</h5>
+                    <p class="text-muted">Manage country information.</p>
+                    <a href="{% url 'country_dashboard' %}" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>🏫</h3>
+                    <h5>Universities</h5>
+                    <p class="text-muted">Manage university records.</p>
+                    <a href="{% url 'university_dashboard' %}" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>🎓</h3>
+                    <h5>Scholarships</h5>
+                    <p class="text-muted">Manage scholarships.</p>
+                    <a href="{% url 'scholarship_dashboard' %}" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>📄</h3>
+                    <h5>Applications</h5>
+                    <p class="text-muted">Manage student applications.</p>
+                    <a href="{% url 'application_dashboard' %}" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>📋</h3>
+                    <h5>Documents</h5>
+                    <p class="text-muted">Manage student documents.</p>
+                    <a href="{% url 'document_dashboard' %}" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>📅</h3>
+                    <h5>Timeline</h5>
+                    <p class="text-muted">Manage timeline records.</p>
+                    <a href="{% url 'timeline_dashboard' %}" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>👨‍🎓</h3>
+                    <h5>Students</h5>
+                    <p class="text-muted">View registered students.</p>
+                    <a href="/admin/auth/user/" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>📩</h3>
+                    <h5>Contact Messages</h5>
+                    <p class="text-muted">View messages from users.</p>
+                    <a href="/admin/students/contact/" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="country-card p-4 shadow-soft text-center">
+                    <h3>⚙️</h3>
+                    <h5>Django Admin</h5>
+                    <p class="text-muted">Open the complete admin panel.</p>
+                    <a href="/admin/" class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+
+            <a href="{% url 'dashboard' %}" class="btn btn-outline-secondary me-3">
+                ⬅ Student Dashboard
+            </a>
+
+            <a href="{% url 'logout' %}" class="btn btn-danger">
+                🚪 Logout
+            </a>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section>
-<h2>Admin Panel</h2>
-
-<ul>
-
-    <li>👨‍🎓 Manage Students</li>
-
-    <li>➕ Add Student</li>
-
-    <li>📝 View Student Records</li>
-
-    <li>🌍 Manage Countries</li>
-
-    <li>🏫 Manage Universities</li>
-
-    <li>📄 Manage Applications</li>
-
-    <li>📋 Verify Documents</li>
-
-    <li>🎓 Manage Scholarships</li>
-
-    <li>📊 View Reports</li>
-
-    <li>⚙ Website Settings</li>
-
-    <li>🚪 Logout</li>
-    
-
-</ul>
-</section>
-<a href="{% url 'dashboard' %}" class="back-btn">
-⬅ Back to Dashboard
-</a>
 {% endblock %}

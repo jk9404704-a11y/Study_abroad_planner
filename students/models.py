@@ -52,6 +52,7 @@ class IELTS(models.Model):
 
 # Budget model
 class Budget(models.Model):
+    
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     tuition_fee = models.DecimalField(max_digits=10, decimal_places=2)
     living_cost = models.DecimalField(max_digits=10, decimal_places=2)

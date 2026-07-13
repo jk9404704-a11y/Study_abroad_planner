@@ -7,60 +7,133 @@ Application Status
 {% block content %}
 
 <section class="section-padding">
+
 <div class="container">
 
-<div class="section-heading text-center mb-5">
-<span class="eyebrow">Application Status</span>
-<h2 class="section-title">Track Your Application</h2>
+    <div class="section-heading text-center mb-5">
+        <span class="eyebrow">Application Status</span>
+        <h2 class="section-title">Track Your University Application</h2>
+        <p class="text-muted">
+            Select your university and update your current application status.
+        </p>
+    </div>
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6">
+
+            <div class="section-glass p-5 shadow-soft">
+
+                <form method="POST">
+
+                    {% csrf_token %}
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Select University
+                        </label>
+
+                        <select name="university" class="form-select">
+
+                            {% for university in universities %}
+
+                            <option value="{{ university.id }}"
+
+                            {% if application and application.university.id == university.id %}
+                            selected
+                            {% endif %}>
+
+                                {{ university.university_name }}
+
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Application Status
+                        </label>
+
+                        <select name="status" class="form-select">
+
+                            <option value="Applied"
+                            {% if application and application.status == "Applied" %}selected{% endif %}>
+                            Applied
+                            </option>
+
+                            <option value="Under Review"
+                            {% if application and application.status == "Under Review" %}selected{% endif %}>
+                            Under Review
+                            </option>
+
+                            <option value="Accepted"
+                            {% if application and application.status == "Accepted" %}selected{% endif %}>
+                            Accepted
+                            </option>
+
+                            <option value="Rejected"
+                            {% if application and application.status == "Rejected" %}selected{% endif %}>
+                            Rejected
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <button class="btn btn-primary w-100">
+                        Save Application
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="section-glass p-5 shadow-soft text-center">
+
+                {% if application %}
+
+                    <h4>Your University</h4>
+
+                    <h3 class="mb-4">
+                        {{ application.university.university_name }}
+                    </h3>
+
+                    <hr>
+
+                    <h4>Current Status</h4>
+
+                    <h2 class="mt-3 text-primary">
+                        {{ application.status }}
+                    </h2>
+
+                {% else %}
+
+                    <h4>No Application Submitted Yet</h4>
+
+                    <p class="text-muted mt-3">
+                        Select your university and application status to save your progress.
+                    </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<form method="POST">
-
-{% csrf_token %}
-
-<div class="mb-4">
-
-<label class="form-label">
-Select Current Status
-</label>
-
-<select name="status" class="form-select">
-
-<option value="Applied">Applied</option>
-
-<option value="Under Review">Under Review</option>
-
-<option value="Accepted">Accepted</option>
-
-<option value="Rejected">Rejected</option>
-
-</select>
-
-</div>
-
-<button class="btn btn-primary mb-5">
-Update Status
-</button>
-
-</form>
-
-<div class="application-step p-4 shadow-soft">
-
-{% if status %}
-
-<h4>Current Status</h4>
-
-<h2>{{ status }}</h2>
-
-{% else %}
-
-<h4>No Status Selected Yet</h4>
-
-{% endif %}
-
-</div>
-
-</div>
 </section>
 
 {% endblock %}
