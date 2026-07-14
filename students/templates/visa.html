@@ -44,7 +44,7 @@ Visa Readiness
                             <div class="country-card p-4">
                                 <h5>Passport</h5>
 
-                                {% if checklist.passport %}
+                                {% if checklist and checklist.passport %}
                                     <p class="text-success">Completed ✅</p>
                                 {% else %}
                                     <p class="text-danger">Pending ❌</p>
@@ -57,7 +57,7 @@ Visa Readiness
                             <div class="country-card p-4">
                                 <h5>IELTS</h5>
 
-                                {% if checklist.ielts %}
+                                {% if checklist and checklist.ielts %}
                                     <p class="text-success">Completed ✅</p>
                                 {% else %}
                                     <p class="text-danger">Pending ❌</p>
@@ -70,7 +70,7 @@ Visa Readiness
                             <div class="country-card p-4">
                                 <h5>Statement of Purpose (SOP)</h5>
 
-                                {% if checklist.sop %}
+                                {% if checklist and checklist.sop %}
                                     <p class="text-success">Completed ✅</p>
                                 {% else %}
                                     <p class="text-danger">Pending ❌</p>
@@ -83,7 +83,7 @@ Visa Readiness
                             <div class="country-card p-4">
                                 <h5>Letter of Recommendation (LOR)</h5>
 
-                                {% if checklist.lor %}
+                                {% if checklist and checklist.lor %}
                                     <p class="text-success">Completed ✅</p>
                                 {% else %}
                                     <p class="text-danger">Pending ❌</p>
@@ -96,7 +96,7 @@ Visa Readiness
                             <div class="country-card p-4">
                                 <h5>Resume</h5>
 
-                                {% if checklist.resume %}
+                                {% if checklist and checklist.resume %}
                                     <p class="text-success">Completed ✅</p>
                                 {% else %}
                                     <p class="text-danger">Pending ❌</p>
@@ -109,7 +109,7 @@ Visa Readiness
                             <div class="country-card p-4">
                                 <h5>Offer Letter</h5>
 
-                                {% if checklist.offer_letter %}
+                                {% if checklist and checklist.offer_letter %}
                                     <p class="text-success">Completed ✅</p>
                                 {% else %}
                                     <p class="text-danger">Pending ❌</p>
@@ -122,7 +122,7 @@ Visa Readiness
                             <div class="country-card p-4">
                                 <h5>Visa</h5>
 
-                                {% if checklist.visa %}
+                                {% if checklist and checklist.visa %}
                                     <p class="text-success">Completed ✅</p>
                                 {% else %}
                                     <p class="text-danger">Pending ❌</p>

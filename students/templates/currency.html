@@ -95,6 +95,8 @@ Currency Converter
 
                     {% if converted_amount %}
                         <h2>{{ converted_amount }}</h2>
+                    {% elif error %}  
+                        <p class="text-danger">{{ error }}</p>  
                     {% else %}
                         <h4>Enter values to convert</h4>
                     {% endif %}

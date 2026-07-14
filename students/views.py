@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login as auth_login, logout as aut
 from django.contrib.auth.models import User
 from .models import Country,University,Scholarship,Budget,IELTS,DocumentChecklist,Application,Timeline,Contact
 from django.shortcuts import get_object_or_404
+import requests
 # Create your views here.
 def home(request):
     return render(request,'home.html')
@@ -285,28 +286,35 @@ def document_dashboard(request):
 def currency_dashboard(request):
 
     converted_amount = None
-
-    rates = {
-        "USD": 1.00,
-        "EUR": 0.92,
-        "GBP": 0.79,
-        "CAD": 1.37,
-        "AUD": 1.53,
-        "INR": 85.50,
-    
-    }
+    error = None
 
     if request.method == "POST":
-        amount = float(request.POST.get("amount"))
+
+        amount = request.POST.get("amount")
         from_currency = request.POST.get("from_currency")
         to_currency = request.POST.get("to_currency")
 
-        usd_amount = amount / rates[from_currency]
-        converted_amount = round(usd_amount * rates[to_currency], 2)
+        try:
+
+            url = f"https://api.frankfurter.app/latest?amount={amount}&from={from_currency}&to={to_currency}"
+
+            response = requests.get(url)
+
+            data = response.json()
+
+            converted_amount = data["rates"][to_currency]
+
+        except Exception:
+
+            error = "Unable to fetch live exchange rate."
 
     return render(request, "currency.html", {
-        "converted_amount": converted_amount
+
+        "converted_amount": converted_amount,
+        "error": error,
+
     })
+
 
 # timeline views
 
