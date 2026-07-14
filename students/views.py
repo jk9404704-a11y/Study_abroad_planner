@@ -283,37 +283,42 @@ def document_dashboard(request):
 
 # currency views
 
+        
+from django.shortcuts import render
+
 def currency_dashboard(request):
 
     converted_amount = None
-    error = None
 
     if request.method == "POST":
 
-        amount = request.POST.get("amount")
+        amount = float(request.POST.get("amount"))
         from_currency = request.POST.get("from_currency")
         to_currency = request.POST.get("to_currency")
 
-        try:
+        API_KEY = "28d9463c9c16ec83c6da899e"
 
-            url = f"https://api.frankfurter.app/latest?amount={amount}&from={from_currency}&to={to_currency}"
+        url = f"https://v6.exchangerate-api.com/v6/{API_KEY}/latest/{from_currency}"
 
-            response = requests.get(url)
+        response = requests.get(url)
+        data = response.json()
 
-            data = response.json()
+        if data["result"] == "success":
 
-            converted_amount = data["rates"][to_currency]
+            rate = data["conversion_rates"][to_currency]
 
-        except Exception:
-
-            error = "Unable to fetch live exchange rate."
+            converted_amount = round(amount * rate, 2)
 
     return render(request, "currency.html", {
-
-        "converted_amount": converted_amount,
-        "error": error,
-
+        "converted_amount": converted_amount
     })
+        
+
+
+
+
+
+        
 
 
 # timeline views
