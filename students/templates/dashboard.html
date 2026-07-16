@@ -5,9 +5,19 @@ Dashboard
 {% endblock %}
 
 {% block content %}
+<style>
+    .quick-card h5 {
+        font-weight: 800 !important; 
+    }
+</style>
 <section class="dashboard-hero section-glass py-5">
     <div class="container">
         <div class="row align-items-center gy-4">
+            <div class="text-end mb-3">
+                 <a href="{% url 'logout' %}" class="logout-btn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Logout
+                 </a>
+            </div>
             <div class="col-lg-8">
                 <div class="welcome-card p-5 shadow-soft">
                     <div class="d-flex align-items-center justify-content-between flex-wrap">
@@ -17,8 +27,8 @@ Dashboard
                             <p>Ready to continue your study abroad planning? Use your dashboard for fast access to the tools you need.</p>
                         </div>
                         <div class="dashboard-badge text-center">
-                            <span>Dashboard</span>
-                            <p>Updated Today</p>
+                            
+                           <span>Dashboard Updated Today</span>
                         </div>
                     </div>
                 </div>
@@ -41,16 +51,16 @@ Dashboard
     <div class="container">
         <div class="section-heading mb-4"><span class="eyebrow">Quick Access</span><h2 class="section-title">Jump to your planning tools</h2></div>
         <div class="row g-4">
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'country_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-globe"></i><h5>Country Selection</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'ielts_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-book-open-reader"></i><h5>IELTS Tracker</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'budget_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-wallet"></i><h5>Budget Planner</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'document_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-file-circle-check"></i><h5>Documents</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'application_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-tasks"></i><h5>Application Status</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'scholarship_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-award"></i><h5>Scholarship Finder</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'university_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-building-columns"></i><h5>University Finder</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'timeline_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-calendar-check"></i><h5>Timeline Planner</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'currency_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-dollar-sign"></i><h5>Currency Converter</h5></a></div>
-            <div class="col-sm-6 col-xl-3"><a href="{% url 'visa_readiness' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-passport"></i><h5>Visa Readiness</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'country_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-globe"></i><div class="about-icon">🌍</div><h5>Country Selection</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'ielts_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-book-open-reader"></i><h5><div class="about-icon">📊</div>IELTS Tracker</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'budget_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-wallet"></i><div class="about-icon">💵</div><h5>Budget Planner</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'document_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-file-circle-check"></i><div class="about-icon">📑</div><h5>Documents</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'application_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-tasks"></i><div class="about-icon">⏳</div><h5>Application Status</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'scholarship_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-award"></i><div class="about-icon">🎓</div><h5>Scholarship Finder</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'university_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-building-columns"></i><div class="about-icon">🏫</div><h5>University Finder</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'timeline_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-calendar-check"></i><div class="about-icon">📅</div><h5>Timeline Planner</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'currency_dashboard' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-dollar-sign"></i><div class="about-icon">🪙</div><h5>Currency Converter</h5></a></div>
+            <div class="col-sm-6 col-xl-3"><a href="{% url 'visa_readiness' %}" class="quick-card section-glass shadow-soft"><i class="fa-solid fa-passport"></i><div class="about-icon">✍🏻</div><h5>Visa Readiness</h5></a></div>
         </div>
     </div>
         </div>
