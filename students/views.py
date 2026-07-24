@@ -153,26 +153,29 @@ def budget_dashboard(request):
 
 def application_dashboard(request):
 
-    application = Application.objects.filter(user=request.user).first()
     universities = University.objects.all()
 
     if request.method == "POST":
 
-        if application is None:
-            application = Application(user=request.user)
-
-        application.user = request.user
-        application.university = University.objects.get(
+        university = University.objects.get(
             id=request.POST.get("university")
         )
-        application.status = request.POST.get("status")
 
-        application.save()
+        status = request.POST.get("status")
 
-    application = Application.objects.filter(user=request.user).first()
+        Application.objects.create(
+            user=request.user,
+            university=university,
+            status=status
+        )
+
+    applications = Application.objects.filter(user=request.user)
+
+    application = applications.last()
 
     return render(request, "application/application_list.html", {
         "application": application,
+        "applications": applications,
         "universities": universities,
     })
 

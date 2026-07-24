@@ -136,4 +136,48 @@ Application Status
 
 </section>
 
+<hr class="my-5">
+
+<h3 class="mb-4">My Applications</h3>
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+        <tr>
+            <th>University</th>
+            <th>Country</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+    {% for app in applications %}
+
+        <tr>
+
+            <td>{{ app.university.university_name }}</td>
+
+            <td>{{ app.university.country.country_name }}</td>
+
+            <td>{{ app.status }}</td>
+
+        </tr>
+
+    {% empty %}
+
+        <tr>
+
+            <td colspan="3" class="text-center">
+                No applications submitted yet.
+            </td>
+
+        </tr>
+
+    {% endfor %}
+
+    </tbody>
+
+</table>
+
 {% endblock %}
